@@ -19,13 +19,42 @@ describe 'TodoList' do
         end
     end
 
-    describe 'deleting a todo item from todolist' do
-        it 'deletes a todo item from list' do 
+    #describe 'deleting a todo item from todolist' do
+    #    it 'deletes a todo item from list' do 
+
+    #        todo = 'Get milk from shop'
+    #        todolist = TodoList.new()
+
+    #        todolist.add(todo)
+
+    #        expect(todolist.delete()).to be false 
+    #    end
+    #end
+
+    describe 'printing todos to users from todolist' do
+        it 'print first todo item from list' do 
 
             todo = 'Get milk from shop'
-            todolist = Todolist.new
+            todolist = TodoList.new()
 
             todolist.add(todo)
 
-            expect(todolist.delete())
+
+            expect{ todolist.print_list(0) }.to output("0: Get milk from shop\n").to_stdout 
+        end
+        it 'prints all todo items from list' do
+
+            todo = 'Get milk'
+            todo2 = 'Get bread'
+            todo3 = 'Get coffee'
+
+            todolist = TodoList.new
+            
+            todolist.add(todo)
+            todolist.add(todo2)
+            todolist.add(todo3)
+
+            expect{ todolist.print_list() }.to output("0: Get milk\n1: Get bread\n2: Get coffee\n").to_stdout
+        end
+    end
 end  
