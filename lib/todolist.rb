@@ -1,4 +1,6 @@
 class TodoList
+  attr_reader :todlist
+
   def initialize()
     @todolist = []
   end
@@ -20,5 +22,9 @@ class TodoList
       @todolist.clear()
     end
     @todolist
+  end
+
+  def edit_todo(index, todo)
+    @todolist[index] = todo
   end
 end

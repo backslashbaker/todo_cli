@@ -82,4 +82,22 @@ describe "TodoList" do
   end
 
   #   //TODO: Test users ability to edit an item in an array
+
+  describe "editing item in todo" do
+    it "edits 'get milk' to 'get shampoo'" do
+      todo = "Get milk"
+      todo2 = "Get bread"
+      todo3 = "Get coffee"
+
+      todolist = TodoList.new
+
+      todolist.add(todo)
+      todolist.add(todo2)
+      todolist.add(todo3)
+
+      print todolist
+
+      expect(todolist.edit_todo(0, "Get shampoo")).to eq "Get shampoo"
+    end
+  end
 end
