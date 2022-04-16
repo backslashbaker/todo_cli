@@ -80,4 +80,6 @@ describe "TodoList" do
       expect { todolist.print_list() }.to output("0: Get milk\n1: Get bread\n2: Get coffee\n").to_stdout
     end
   end
+
+  #   //TODO: Test users ability to edit an item in an array
 end
