@@ -13,8 +13,12 @@ class TodoList
     end
   end
 
-  def delete_todo(index)
-    @todolist.delete_at(index)
+  def delete_todo(index = nil)
+    if index
+      @todolist.delete_at(index)
+    else
+      @todolist.clear()
+    end
     @todolist
   end
 end

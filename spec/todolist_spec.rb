@@ -42,14 +42,19 @@ describe "TodoList" do
       expect(todolist.delete_todo(2)).to eq ["Get milk", "Get bread"]
     end
 
-    #it "deletes a todo item from list" do
-    #  todo = "Get milk from shop"
-    #  todolist = TodoList.new()
+    it "deletes all todo item from list" do
+      todo = "Get milk"
+      todo2 = "Get bread"
+      todo3 = "Get coffee"
 
-    #  todolist.add(todo)
+      todolist = TodoList.new
 
-    #  expect(todolist.delete_todo(0)).to be false
-    #end
+      todolist.add(todo)
+      todolist.add(todo2)
+      todolist.add(todo3)
+
+      expect(todolist.delete_todo()).to eq []
+    end
   end
 
   describe "printing todos to users from todolist" do
