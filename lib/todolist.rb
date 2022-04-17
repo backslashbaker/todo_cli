@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
+# Manages the CRUD elements of the todo list
 class TodoList
   attr_accessor :todolist
-
 
   def initialize
     @todolist = []
