@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "../lib/todolist"
 
 describe "TodoList" do
@@ -14,17 +16,15 @@ describe "TodoList" do
 
       expected = ["Get milk from shop"]
 
-      expect(todolist.add(todo)).to eq(expected)
+      expect(todolist.add_todo_item(todo)).to eq(expected)
     end
   end
 
   describe "deleting a todo item from todolist" do
     it "deletes one todo item from list" do
       todo = "Get milk from shop"
-      todolist = TodoList.new()
-
-      todolist.add(todo)
-
+      todolist = TodoList.new
+      todolist.add_todo_item(todo)
       expect(todolist.delete_todo(0)).to eq []
     end
 
@@ -35,9 +35,9 @@ describe "TodoList" do
 
       todolist = TodoList.new
 
-      todolist.add(todo)
-      todolist.add(todo2)
-      todolist.add(todo3)
+      todolist.add_todo_item(todo)
+      todolist.add_todo_item(todo2)
+      todolist.add_todo_item(todo3)
 
       expect(todolist.delete_todo(2)).to eq ["Get milk", "Get bread"]
     end
@@ -49,23 +49,24 @@ describe "TodoList" do
 
       todolist = TodoList.new
 
-      todolist.add(todo)
-      todolist.add(todo2)
-      todolist.add(todo3)
+      todolist.add_todo_item(todo)
+      todolist.add_todo_item(todo2)
+      todolist.add_todo_item(todo3)
 
-      expect(todolist.delete_todo()).to eq []
+      expect(todolist.delete_todo).to eq []
     end
   end
 
   describe "printing todos to users from todolist" do
     it "print first todo item from list" do
       todo = "Get milk from shop"
-      todolist = TodoList.new()
+      todolist = TodoList.new
 
-      todolist.add(todo)
+      todolist.add_todo_item(todo)
 
-      expect { todolist.print_list(0) }.to output("0: Get milk from shop\n").to_stdout
+      expect { todolist.print_list }.to output("0: Get milk from shop\n").to_stdout
     end
+
     it "prints all todo items from list" do
       todo = "Get milk"
       todo2 = "Get bread"
@@ -73,11 +74,11 @@ describe "TodoList" do
 
       todolist = TodoList.new
 
-      todolist.add(todo)
-      todolist.add(todo2)
-      todolist.add(todo3)
+      todolist.add_todo_item(todo)
+      todolist.add_todo_item(todo2)
+      todolist.add_todo_item(todo3)
 
-      expect { todolist.print_list() }.to output("0: Get milk\n1: Get bread\n2: Get coffee\n").to_stdout
+      expect { todolist.print_list }.to output("0: Get milk\n1: Get bread\n2: Get coffee\n").to_stdout
     end
   end
 
@@ -91,11 +92,9 @@ describe "TodoList" do
 
       todolist = TodoList.new
 
-      todolist.add(todo)
-      todolist.add(todo2)
-      todolist.add(todo3)
-
-      print todolist
+      todolist.add_todo_item(todo)
+      todolist.add_todo_item(todo2)
+      todolist.add_todo_item(todo3)
 
       expect(todolist.edit_todo(0, "Get shampoo")).to eq "Get shampoo"
     end

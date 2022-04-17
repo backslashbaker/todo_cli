@@ -1,15 +1,17 @@
+# frozen_string_literal: true
 class TodoList
-  attr_reader :todlist
+  attr_accessor :todolist
 
-  def initialize()
+
+  def initialize
     @todolist = []
   end
 
-  def add(todo)
+  def add_todo_item(todo)
     @todolist << todo
   end
 
-  def print_list(index = nil)
+  def print_list
     @todolist.each_with_index do |todo, index|
       puts "#{index}: #{todo}"
     end
@@ -19,7 +21,7 @@ class TodoList
     if index
       @todolist.delete_at(index)
     else
-      @todolist.clear()
+      @todolist.clear
     end
     @todolist
   end

@@ -1,9 +1,9 @@
-class Todo
-  def initialize(string)
-    @string = string
-  end
+# frozen_string_literal: true
 
-  def todo_item
-    @string
+class Todo
+  attr_accessor :todo_item
+
+  def initialize(todo_item)
+    @todo_item = todo_item
   end
 end
