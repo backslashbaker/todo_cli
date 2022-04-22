@@ -11,6 +11,8 @@ describe Display do
 
       expect do
         display.welcome_message
-      end.to output("Welcome to Todo CLI.\nA simple todo app for your terminal\n").to_stdout
+        expect { display.welcome_message }.to output("Welcome to Todo CLI.\nA simple todo app for your terminal\n").to_stdout
+      end
     end
+  end
 end
